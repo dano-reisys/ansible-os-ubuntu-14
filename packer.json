@@ -1,8 +1,8 @@
 {
   "variables": {
     "source_ami": "ami-a5a98fde",
-    "instance_type": "t2.medium",
-    "ami_name": "gsa-hardened-ubuntu-1404"
+    "instance_type": "m3.medium",
+    "ami_name": "gsa-hardened-ubuntu-1404 {{isotime \"2006-01-02T03-04-05\"}}"
   },
 
   "builders": [{
@@ -25,13 +25,9 @@
   "provisioners": [
     {
         "type": "ansible-local",
-        "playbook_dir": "ansible",
-        "playbook_file": "test.yml",
-        "inventory_groups": "localhost",
-        "extra_arguments": [
-          "--tags ''",
-          "--skip-tags ''",
-          "--vault-password-file=''"
-        ]
+        "command": "",
+        "playbook_dir": ".",
+        "playbook_file": "packer.yml",
+        "inventory_groups": "all"
   }]
 }
