@@ -1,6 +1,6 @@
 {
   "variables": {
-    "source_ami": "ami-a5a98fde",
+    "source_ami": "ami-bd3088c7",
     "instance_type": "m3.medium",
     "ami_name": "gsa-hardened-ubuntu-1404 {{isotime \"2006-01-02T03-04-05\"}}"
   },
@@ -28,6 +28,9 @@
         "command": "",
         "playbook_dir": ".",
         "playbook_file": "packer.yml",
-        "inventory_groups": "all"
+        "inventory_groups": "all",
+        "extra_arguments": [
+          "--skip-tags 'id_5.1.8'"
+        ]
   }]
 }
